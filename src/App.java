@@ -48,19 +48,19 @@ public class App extends PApplet {
         triX1 -= speed;
         triX2 -= speed;
 
-        if (triX1 < -triSize1) {
+        if (triX1 < 0) {
             triX1 = width;
+        
+        float randomX1a = random(1600, 800);
+        println(randomX1a, y1a, x2a, y2a, x3a, y3a);
         }
-        int randomX1 = random(1600, 800);
-        println(randomX1);
-        triangle(randomX1, 500);
 
-        if (triX2 < -triSize2) {
+        if (triX2 < 0) {
             triX2 = width;
+        
+        float randomX2b = random(1600, 800);
+        println(randomX2b, x1b, x2b, y2b, x3b, y3b);
         }
-        int randomX2 = random(1600, 800);
-        println(randomX2);
-        triangle(randomX2, 550);
         
 
         
