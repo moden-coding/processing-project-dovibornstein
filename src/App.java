@@ -31,36 +31,28 @@ public class App extends PApplet {
 
         float x1a = triX1;
         float y1a = triY1;
-        float x2a = triX1 + triSize1;
-        float y2a = triY1 + triSize1 / 2; // I used ChatGPT to figure out to use /2 to make it equalateral
-        float x3a = triX1 + triSize1;
-        float y3a = triY1 - triSize1 / 2;
-        triangle(x1a, y1a, x2a, y2a, x3a, y3a);
+        triangle(x1a + 17.5f, y1a - 17.5f, x1a, y1a - 35, x1a, y1a);//x1a, y1a, x1a + 35, y1a, x1a + 17.5, y1a - 35);
 
         float x1b = triX2;
         float y1b = triY2;
-        float x2b = triX2 + triSize1;
-        float y2b = triY2 + triSize1 / 2;
-        float x3b = triX2 + triSize1;
-        float y3b = triY2 - triSize1 / 2;
-        triangle(x1b, y1b, x2b, y2b, x3b, y3b);
+        triangle(x1b, y1b, x1b + 35, y1b, x1b + 17.5f, y1b - 35); // do the same thing once you figure out
 
         triX1 -= speed;
         triX2 -= speed;
 
-        if (triX1 < 0) {
-            triX1 = width;
-        
-        float randomX1a = random(1600, 800);
-        println(randomX1a, y1a, x2a, y2a, x3a, y3a);
+        if (x1a + 17.5 < 0) {
+            x1a = + 17.5f  + width;
+    
+        float randomx1a =   17.5f + random(1600, 800);
+        println(randomx1a, y1a, x1a + 35, y1a, x1a + 17.5, y1a - 35);
         }
 
-        if (triX2 < 0) {
-            triX2 = width;
+        // if (x1b + 17.5 < 0) {
+        //     x1b = + 17.5f + width;
         
-        float randomX2b = random(1600, 800);
-        println(randomX2b, x1b, x2b, y2b, x3b, y3b);
-        }
+        // float randomx2b = 17.5f + random(1600, 800);
+        // println(randomx1b, y1b, x1b + 35, y1b, x1b + 17.5, y1b - 35);
+        // }
         
 
         
