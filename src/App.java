@@ -24,8 +24,8 @@ public class App extends PApplet {
     float accelleration;
 
     public void setup() {
-        accelleration = 0.1f;
-        velocity = 3;
+        accelleration = 0.25f;
+        velocity = 1;
         background(255, 255, 255);
         strokeWeight(3);
         line(0, 500, 800, 500);
@@ -42,10 +42,12 @@ public class App extends PApplet {
         line(0, 560, 800, 560);
 
         float y1a = triY1;
+        fill(255, 0, 0);
         triangle(triX1 - 35, y1a - 17.5f, triX1, y1a - 35, triX1, y1a);
 
         float x1b = triX2;
         float y1b = triY2;
+        fill(255, 0, 0);
         triangle(x1b - 35, y1b - 17.5f, x1b, y1b - 35, x1b, y1b);
 
         triX1 -= speed;
@@ -69,13 +71,16 @@ public class App extends PApplet {
             velocity = 0;
         }
 
+        fill(0, 255, 0);
         rect(rectX, rectY, rectW, rectH);
 
+        // triX1 = speed --;
+        // triX2 = speed --;
     }
 
     public void keyPressed() {
-    if (key == ' ') {
-        velocity = -7;
+    if (key == ' ' && rectY == 500) {
+        velocity = -6.5f;
     }
 
     }
