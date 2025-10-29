@@ -5,20 +5,20 @@ public class App extends PApplet {
         PApplet.main("App");
     }
 
+    float rectX = 50;
+    float rectY = 490;
+    float rectW = 40;
+    float rectH = 70;
+
     float triX1 = 800;
-    float triY1 = 500;
+    float triY1 = 515;
     float triSize1 = 35;
 
     float triX2 = 800;
-    float triY2 = 550;
+    float triY2 = 555;
     float triSize2 = 35;
 
     float speed = 5;
-
-    float rectX = 50;
-    float rectY = 500;
-    float rectW = 30;
-    float rectH = 60;
 
     float velocity;
     float accelleration;
@@ -63,11 +63,17 @@ public class App extends PApplet {
             println(triX2);
         }
 
+        if(SpikeHitsDino()){
+        fill(255, 0, 0);
+        }else{
+        fill(0, 255, 0);
+        }
+
         velocity += accelleration;
         rectY += velocity;
 
-        if (rectY >= 500) {
-            rectY = 500;
+        if (rectY >= 490) {
+            rectY = 490;
             velocity = 0;
         }
 
@@ -78,10 +84,23 @@ public class App extends PApplet {
         // triX2 = speed --;
     }
 
-    public void keyPressed() {
-    if (key == ' ' && rectY == 500) {
-        velocity = -6.5f;
+    public boolean SpikeHitsDino(){
+    float rectLeft = rectX;
+    float rectRight = rectX + rectW;
+    float rectTop = rectY;
+    float rectBottom = rectY + rectH;
+
+    float triPoint1 = triX1 - 35, triY1 - 17.5f;
+    float triPoint2 = triX2 - 35, triY2 - 17.5f;
+
+    if (rectX < triX1 < rextX + rectW || rectY < triY1 < rectY + rectH);
+return false;
     }
+
+    public void keyPressed() {
+        if (key == ' ' && rectY == 490) {
+            velocity = -6.5f;
+        }
 
     }
 
