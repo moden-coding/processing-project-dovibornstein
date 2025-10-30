@@ -10,11 +10,11 @@ public class App extends PApplet {
     float rectW = 40;
     float rectH = 70;
 
-    float triX1 = 800;
+    float triX1 = -35;
     float triY1 = 515;
     float triSize1 = 35;
 
-    float triX2 = 800;
+    float triX2 = -35;
     float triY2 = 555;
     float triSize2 = 35;
 
@@ -63,10 +63,11 @@ public class App extends PApplet {
             println(triX2);
         }
 
-        if(SpikeHitsDino()){
-        fill(255, 0, 0);
-        }else{
-        fill(0, 255, 0);
+        if (SpikeHitsDino(triX1, triY1) || SpikeHitsDino(triX2, triY2)) {
+            // gameOver(); Make a game over screen
+        } else {
+            ;
+
         }
 
         velocity += accelleration;
@@ -80,28 +81,46 @@ public class App extends PApplet {
         fill(0, 255, 0);
         rect(rectX, rectY, rectW, rectH);
 
-        // triX1 = speed --;
-        // triX2 = speed --;
+        speed += .001;
     }
 
-    public boolean SpikeHitsDino(){
-    float rectLeft = rectX;
-    float rectRight = rectX + rectW;
-    float rectTop = rectY;
-    float rectBottom = rectY + rectH;
+    public boolean SpikeHitsDino(float xPoint, float yPoint) {
+        float rectLeft = rectX;
+        float rectRight = rectX + rectW;
+        float rectTop = rectY;
+        float rectBottom = rectY + rectH;
 
-    float triPoint1 = triX1 - 35, triY1 - 17.5f;
-    float triPoint2 = triX2 - 35, triY2 - 17.5f;
+        float triPointX = xPoint - 35;
+        float triPointY = yPoint - 17.5f;
 
-    if (rectX < triX1 < rextX + rectW || rectY < triY1 < rectY + rectH);
-return false;
+        if (triPointX < rectRight && triPointX > rectLeft && triPointY > rectTop && triPointY < rectBottom) {
+            println("touching!!!");
+
+            return true;
+        }
+
+        return false;
     }
 
     public void keyPressed() {
-        if (key == ' ' && rectY == 490) {
+        if (keyCode == UP && rectY == 490 ) {
             velocity = -6.5f;
         }
-
+    
+        if (keyCode == DOWN) {
+            rectW = 70;
+            rectH = 40;
+            
+        }
+    }
+    public void keyReleased() {
+        if (keyCode == DOWN) {
+            rectW = 40;
+            rectH = 70;
+            
+        }
     }
 
 }
+
+
