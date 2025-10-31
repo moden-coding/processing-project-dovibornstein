@@ -6,7 +6,7 @@ public class App extends PApplet {
     }
 
     float rectX = 50;
-    float rectY = 490;
+    float rectY = 520;
     float rectW = 40;
     float rectH = 70;
 
@@ -73,7 +73,7 @@ public class App extends PApplet {
         velocity += accelleration;
         rectY += velocity;
 
-        if (rectY >= 490) {
+        if (rectY + rectH >= 520) {
             rectY = 490;
             velocity = 0;
         }
@@ -82,6 +82,7 @@ public class App extends PApplet {
         rect(rectX, rectY, rectW, rectH);
 
         speed += .001;
+        
     }
 
     public boolean SpikeHitsDino(float xPoint, float yPoint) {
@@ -110,14 +111,15 @@ public class App extends PApplet {
         if (keyCode == DOWN) {
             rectW = 70;
             rectH = 40;
-            
+            rectY = 520 - rectH;
         }
     }
     public void keyReleased() {
         if (keyCode == DOWN) {
             rectW = 40;
             rectH = 70;
-            
+            rectY = 490;
+
         }
     }
 
